@@ -11,8 +11,11 @@ var b = 9
 // declaring strings
 var c,d = "tom", "dick"
 
+
+const f = 3.14
+
 func main(){
 	// 'short' assignments can only be made in functions
 	e := true
-	fmt.Println(a, b, c, d, e)
+	fmt.Println(a, b, c, d, e, f)
 }

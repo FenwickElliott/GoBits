@@ -13,6 +13,10 @@ func add(n ... int) int {
 }
 
 func main() {
-	res := add(1,2,3,4,5)
-	fmt.Println(res)
+	num := add(1,2,3,4,5)
+	fmt.Println(num)
+
+	fib := []int{1,1,2,3,5,8,13,21}
+	fibSum := add(fib...)
+	fmt.Println(fibSum)
 }

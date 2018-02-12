@@ -12,11 +12,30 @@ type phonetic struct {
 }
 
 func main() {
-	var phoneSruct phonetic
 	jsonBytes := []byte(`{"a":"alpha","b":"bravo","c":"charlie"}`)
-	err := json.Unmarshal(jsonBytes, &phoneSruct)
+
+	fmt.Print("Original json: ")
+	fmt.Println(string(jsonBytes))
+
+	var phoneStruct phonetic
+	err := json.Unmarshal(jsonBytes, &phoneStruct)
 	check(err)
-	fmt.Printf("%+v\n", phoneSruct)
+
+	fmt.Print("Original json as struct: ")
+	fmt.Printf("%+v\n", phoneStruct)
+
+	phoneStruct.A = "apple"
+	phoneStruct.B = "ballerina"
+	phoneStruct.C = "catastrophe"
+
+	fmt.Print("Edited struct: ")
+	fmt.Printf("%+v\n", phoneStruct)
+
+	editedJson, err := json.Marshal(phoneStruct)
+	check(err)
+
+	fmt.Print("Edited json: ")
+	fmt.Println(string(editedJson))
 }
 
 func check(err error) {
